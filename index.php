@@ -11,118 +11,71 @@ include "koneksi.php";
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
     <link rel="icon" href="img/logo.png" />
+
     <style>
       .accordion-button:not(.collapsed) {
         background-color: #da6a73;
         color: white;
       }
+      .dark-mode {
+        background-color: #121212 !important;
+        color: #f1f1f1 !important;
+      }
+      .dark-mode .navbar {
+        background-color: #1f1f1f !important;
+      }
+      .dark-mode .card,
+      .dark-mode .accordion-body {
+        background-color: #1e1e1e;
+        color: #eee;
+      }
+      .dark-mode footer {
+        background-color: #1f1f1f;
+      }
+      body.dark-mode .navbar .nav-link {
+        color: white !important;
+      }
+      body.dark-mode .navbar .nav-link:hover {
+        color: #ffc107 !important;
+      }
+      body.dark-mode .card {
+        background-color: #1f1f1f !important;
+        color: #f1f1f1 !important;
+      }
+      body.dark-mode .card-title {
+        color: #fff !important;
+      }
+      body.dark-mode .card-text,
+      body.dark-mode small,
+      body.dark-mode .text-body-secondary {
+        color: #ddd !important;
+      }
+      body.dark-mode .accordion-button {
+        background-color: #2b2b2b !important;
+        color: #ffffff !important;
+        box-shadow: none !important;
+      }
+      body.dark-mode .accordion-button:not(.collapsed) {
+        background-color: #333333 !important;
+        color: #ffffff !important;
+      }
+      body.dark-mode .accordion-body {
+        background-color: #1e1e1e !important;
+        color: #f1f1f1 !important;
+      }
+      body.dark-mode .accordion-item {
+        background-color: #1e1e1e !important;
+        border-color: #444 !important;
+      }
     </style>
-    <style>
-  .accordion-button:not(.collapsed) {
-    background-color: #da6a73;
-    color: white;
-  }
-  .dark-mode {
-  background-color: #121212 !important;
-  color: #f1f1f1 !important;
-}
-
-.dark-mode .navbar {
-  background-color: #1f1f1f !important;
-}
-
-.dark-mode .card,
-.dark-mode .accordion-body {
-  background-color: #1e1e1e;
-  color: #eee;
-}
-
-.dark-mode footer {
-  background-color: #1f1f1f;
-}
-
-</style>
-<style>
-  /* Warna teks navbar saat dark mode */
-  body.dark-mode .navbar .nav-link {
-    color: white !important;
-  }
-
-  /* Hover tetap terlihat */
-  body.dark-mode .navbar .nav-link:hover {
-    color: #ffc107 !important;
-  }
-  /* Biar teks di dalam card jadi terang */
-body.dark-mode .card {
-  background-color: #1f1f1f !important;
-  color: #f1f1f1 !important;
-}
-
-/* Judul dalam card */
-body.dark-mode .card-title {
-  color: #fff !important;
-}
-
-/* Text kecil seperti “Last updated 3 mins ago” */
-body.dark-mode .card-text,
-body.dark-mode small,
-body.dark-mode .text-body-secondary {
-  color: #ddd !important;
-}
-
-/* Bagian My Daily Journal (accordion atau card) */
-body.dark-mode .accordion-body {
-  background-color: #1f1f1f !important;
-  color: #f1f1f1 !important;
-}
-
-body.dark-mode .accordion-button {
-  background-color: #2a2a2a !important;
-  color: #fff !important;
-}
-
-body.dark-mode .accordion-button:not(.collapsed) {
-  background-color: #333 !important;
-  color: #fff !important;
-}
-/* BAGIAN HEADER "My Daily Journal" */
-body.dark-mode .accordion-button {
-  background-color: #2b2b2b !important;
-  color: #ffffff !important;     
-  box-shadow: none !important;
-}
-
-/* Saat accordion terbuka */
-body.dark-mode .accordion-button:not(.collapsed) {
-  background-color: #333333 !important;
-  color: #ffffff !important;
-}
-
-/* Isi dalam accordion */
-body.dark-mode .accordion-body {
-  background-color: #1e1e1e !important;
-  color: #f1f1f1 !important;
-}
-
-/* Garis border accordion */
-body.dark-mode .accordion-item {
-  background-color: #1e1e1e !important;
-  border-color: #444 !important;
-}
-</style>
-
-</style>
-
-
   </head>
+
   <body>
     <!-- NAVBAR START -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
@@ -133,45 +86,32 @@ body.dark-mode .accordion-item {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-dark">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#article">Article</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#gallery">Gallery</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#schedule">Schedule</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#aboutme">About Me</a>
-              <li class="nav-item ms-3 d-flex align-items-center">
-                <li class="nav-item">
-  <a class="nav-link" href="login.php" target="_blank">Login</a>
-</li>
-  <button id="btnDark" class="btn btn-sm btn-outline-secondary me-2">
-    <i class="bi bi-moon"></i>
-  </button>
-  <button id="btnLight" class="btn btn-sm btn-outline-secondary">
-    <i class="bi bi-sun"></i>
-  </button>
-</li>
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#article">Article</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="#aboutme">About Me</a></li>
+            <li class="nav-item ms-3 d-flex align-items-center">
+              <a class="nav-link" href="login.php" target="_blank">Login</a>
+              <button id="btnDark" class="btn btn-sm btn-outline-secondary me-2">
+                <i class="bi bi-moon"></i>
+              </button>
+              <button id="btnLight" class="btn btn-sm btn-outline-secondary">
+                <i class="bi bi-sun"></i>
+              </button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- NAVBAR END -->
+
     <!-- HERO START -->
     <section id="hero" class="text-center bg-danger-subtle p-5 text-sm-start">
       <div class="container">
@@ -184,92 +124,108 @@ body.dark-mode .accordion-item {
             <h4 class="lead display-6">
               Mencatat semua kegiatan sehari-hari yang ada tanpa terkecuali
             </h4>
-              <span id="tanggal"></span>
-              <span id="jam"></span>
+            <span id="tanggal"></span> <span id="jam"></span>
           </div>
         </div>
       </div>
     </section>
     <!-- HERO END -->
-      <!--article begin-->
-      <section id="article" class="text-center p-5">
-        <div class="container">
-          <h1 class="fw-bold display-4 pb-3">Article</h1>
-          <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-        <?php
-        $sql = "SELECT * FROM article ORDER BY tanggal DESC";
-        $hasil = $conn->query($sql); 
 
-        while($row = $hasil->fetch_assoc()){
-        ?>
-        <!--col begin-->
+    <!-- ARTICLE START -->
+    <section id="article" class="text-center p-5">
+      <div class="container">
+        <h1 class="fw-bold display-4 pb-3">Article</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+          <?php
+          $sql = "SELECT * FROM article ORDER BY tanggal DESC";
+          $hasil = $conn->query($sql);
+
+          while ($row = $hasil->fetch_assoc()) {
+          ?>
             <div class="col">
-            <div class="card h-100">
-                    <img src="img/<?=$row["gambar"]?>" class="card-img-top" alt="..."/>
+              <div class="card h-100">
+                <img src="img/<?= htmlspecialchars($row["gambar"]) ?>" class="card-img-top" />
                 <div class="card-body">
-                    <h5 class="card-title"><?=$row["judul"]?></h5>
-                    <p class="card-text"><?=$row["isi"]?></p>
+                  <h5 class="card-title"><?= htmlspecialchars($row["judul"]) ?></h5>
+                  <p class="card-text"><?= htmlspecialchars($row["isi"]) ?></p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-body-secondary"><?=$row["tanggal"]?></small>
+                  <small class="text-body-secondary"><?= $row["tanggal"] ?></small>
                 </div>
+              </div>
             </div>
-            </div>
-        <!--col end-->
-        <?php
-        }
-        ?>
-          </div>
+          <?php } ?>
         </div>
-      </section>
-      <!--article end-->
-    <!-- GALLERY START -->
+      </div>
+    </section>
+    <!-- ARTICLE END -->
+
+    <!-- ================== GALLERY START (SUDAH FIX & TERHUBUNG DB) ================== -->
     <section id="gallery" class="bg-danger-subtle text-center p-5">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">Gallery</h1>
-        <div id="carouselExample" class="carousel slide">
+
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/gal1.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/gal2.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/gal4.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/gal5.jpg" class="d-block w-100" alt="..." />
-            </div>
+
+            <?php
+            $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+            $hasil = $conn->query($sql);
+            $active = "active";
+
+            if ($hasil && $hasil->num_rows > 0) :
+              while ($row = $hasil->fetch_assoc()) :
+            ?>
+                <div class="carousel-item <?= $active; ?>">
+                  <img
+                    src="img/<?= htmlspecialchars($row['gambar']); ?>"
+                    class="d-block w-100"
+                    style="max-height:500px; object-fit:cover;"
+                    alt="<?= htmlspecialchars($row['judul']); ?>"
+                  />
+                  <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+                    <h5><?= htmlspecialchars($row['judul']); ?></h5>
+                    <p><?= $row['tanggal']; ?> | <?= htmlspecialchars($row['username']); ?></p>
+                  </div>
+                </div>
+            <?php
+                $active = ""; // hanya slide pertama yang active
+              endwhile;
+            else :
+            ?>
+              <div class="carousel-item active">
+                <div class="text-center p-5">Belum ada data gallery</div>
+              </div>
+            <?php endif; ?>
+
           </div>
+
           <button
             class="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExample"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon"></span>
           </button>
+
           <button
             class="carousel-control-next"
             type="button"
             data-bs-target="#carouselExample"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon"></span>
           </button>
         </div>
       </div>
     </section>
-    <!-- GALLERY END -->
+    <!-- ================== GALLERY END ================== -->
+
     <!-- ACTIVITY START -->
     <section id="schedule" class="text-center p-5">
       <h1 class="fw-bold display-4 pb-3">Schedule</h1>
-      <div
-        class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4 justify-content-center"
-      >
+      <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4 justify-content-center">
         <div class="col">
           <div class="p-4 border rounded shadow-sm h-100">
             <i class="bi bi-book text-danger fs-1"></i>
@@ -315,102 +271,52 @@ body.dark-mode .accordion-item {
       </div>
     </section>
     <!-- ACTIVITY END -->
+
     <!-- ABOUT ME START -->
     <section id="aboutme" class="bg-danger-subtle text-center p-5">
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
               Universitas Dian Nuswantoro Semarang (2024-Now)
             </button>
           </h2>
-          <div
-            id="collapseOne"
-            class="accordion-collapse collapse show"
-            data-bs-parent="#accordionExample"
-          >
+          <div id="collapseOne" class="accordion-collapse collapse show">
             <div class="accordion-body">
-              <strong>This is the first item’s accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It’s also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <strong>This is the first item’s accordion body.</strong>
             </div>
           </div>
         </div>
+
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
               SMA Negeri 1 Semarang (2024–2021)
             </button>
           </h2>
-          <div
-            id="collapseTwo"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
+          <div id="collapseTwo" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <strong>This is the second item’s accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It’s also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <strong>This is the second item’s accordion body.</strong>
             </div>
           </div>
         </div>
+
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-            >
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
               SMP Negeri 2 Semarang (2021–2018)
             </button>
           </h2>
-          <div
-            id="collapseThree"
-            class="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
+          <div id="collapseThree" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <strong>This is the third item’s accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It’s also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <strong>This is the third item’s accordion body.</strong>
             </div>
           </div>
         </div>
       </div>
     </section>
     <!-- ABOUT ME END -->
+
     <!-- FOOTER START -->
     <footer class="text-center p-5">
       <div>
@@ -421,55 +327,47 @@ body.dark-mode .accordion-item {
       <div><p>Ibnu Rifai Ardiansyah &copy; 2023</p></div>
     </footer>
     <!-- FOOTER END -->
-     		<!-- Tombol Back to Top -->
-    <button
-      id="backToTop"
-      class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-3 d-none"
-    >
-      <i class="bi bi-arrow-up" title="Back to Top"></i>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-3 d-none">
+      <i class="bi bi-arrow-up"></i>
     </button>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-  var btnDark = document.getElementById("btnDark");
-  var btnLight = document.getElementById("btnLight");
+      var btnDark = document.getElementById("btnDark");
+      var btnLight = document.getElementById("btnLight");
 
-  btnDark.onclick = function () {
-    document.body.classList.add("dark-mode");
-  }
+      btnDark.onclick = function () {
+        document.body.classList.add("dark-mode");
+      };
 
-  btnLight.onclick = function () {
-    document.body.classList.remove("dark-mode");
-  }
-</script>
-<script type="text/javascript">
-  function tampilwaktu() {
-  const waktu = new Date();
-  const tanggal = waktu.getDate();
-const bulan = waktu.getMonth();
-const tahun = waktu.getFullYear();
-const jam = waktu.getHours();
-const menit = waktu.getMinutes();
-const detik = waktu.getSeconds();
+      btnLight.onclick = function () {
+        document.body.classList.remove("dark-mode");
+      };
+    </script>
 
-const arrBulan = ["1", "2", "3", "4","5","6","7","8","9","10","11","12"];
+    <script>
+      function tampilwaktu() {
+        const waktu = new Date();
+        const tanggal = waktu.getDate();
+        const bulan = waktu.getMonth() + 1;
+        const tahun = waktu.getFullYear();
+        const jam = waktu.getHours();
+        const menit = waktu.getMinutes();
+        const detik = waktu.getSeconds();
 
-const tanggal_full = tanggal + "/" + arrBulan[bulan] + "/" + tahun;
-const jam_full = jam + ":" + menit + ":" + detik;
+        document.getElementById("tanggal").innerHTML = tanggal + "/" + bulan + "/" + tahun;
+        document.getElementById("jam").innerHTML = jam + ":" + menit + ":" + detik;
+      }
+      setInterval(tampilwaktu, 1000);
+    </script>
 
-document.getElementById("tanggal").innerHTML = tanggal_full;
-document.getElementById("jam").innerHTML = jam_full;
-  }
-
-  setInterval(tampilwaktu, 1000);
-     </script>
-     <script type="text/javascript"> 
-  const backToTop = document.getElementById("backToTop");
-      			window.addEventListener("scroll", function () {
-        				if (window.scrollY > 300) {
+    <script>
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
           backToTop.classList.remove("d-none");
           backToTop.classList.add("d-block");
         } else {
@@ -477,9 +375,9 @@ document.getElementById("jam").innerHTML = jam_full;
           backToTop.classList.add("d-none");
         }
       });
-  backToTop.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-    </body>
-  </html>
+      backToTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>
